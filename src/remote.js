@@ -127,10 +127,12 @@ if (!origin && document && document.location) {
 
 const defaults = {
   url: `${origin}/logger`,
+  contentTypeHeader: 'text/plain',
   call: true,
   timeout: 0,
   trace: ['trace', 'warn', 'error'],
   clear: 1,
+  tokenHeaderKey: 'Authorization',
   token: '',
 };
 
@@ -177,10 +179,10 @@ const apply = function apply(logger, options) {
 
     const xhr = new window.XMLHttpRequest();
     xhr.open('POST', `${options.url}?r=${Math.random()}`, true);
-    xhr.setRequestHeader('Content-Type', 'text/plain');
+    xhr.setRequestHeader('Content-Type', options.contentTypeHeader);
 
     if (options.token) {
-      xhr.setRequestHeader('Authorization', options.token);
+      xhr.setRequestHeader(options.tokenHeaderKey, options.token);
     }
 
     const cancel = () => {
