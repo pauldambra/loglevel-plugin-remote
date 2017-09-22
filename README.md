@@ -26,23 +26,23 @@ apply(log[, options]);
 ```javascript
 const defaults = {
   url: `${origin}/logger`,
-  contentTypeHeader: 'text/plain',
+  contentType: 'text/plain',
   call: true,
   timeout: 0,
   trace: ['trace', 'warn', 'error'],
   clear: 1,
-  tokenHeaderKey: 'Authorization',
+  tokenKey: 'Authorization',
   token: '',
 };
 ```
 
 - **url** - URL of log server API
-- **contentTypeHeader** - the content type the log message is POSTed with
+- **contentType** - the content type the log message is POSTed with
 - **call** - if set to true, then the original loglevel method will be called
 - **timeout** - timeout in milliseconds ([MDN](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest/timeout))
 - **trace** - lots of levels for which to add the stack trace
 - **clear** - the number of rows to clean stack trace
-- **tokenHeaderKey** - the header used when sending the authorization token
+- **tokenKey** - the header used when sending the authorization token
 - **token** - authorization token (EG: "Bearer e8da0826-d680-4f79-87a9-d39fb06647b3")
 
 ## Base usage
